@@ -103,7 +103,31 @@
                     $.get(url, function(data, status){
                         document.getElementById(loket + "-antrian-nomor-a").innerText = data.nomor;
                         if (data.status == 1) {
-                            $("#"+ loket + "-antrian-nomor-a").addClass("blinking-text");
+
+                            var updated_at = data.updated_at;
+
+                            // Ambil timestamp dari updated_at
+                            var updatedTimestamp = new Date(updated_at).getTime();
+
+                            // Atur interval untuk memeriksa setiap 1 detik
+                            var intervalId = setInterval(function() {
+                                // Ambil waktu sekarang
+                                var currentTime = new Date().getTime();
+
+                                // Periksa apakah sudah 20 detik berlalu
+                                if (currentTime - updatedTimestamp >= 10000) { // 20 detik dalam milidetik
+                                    // Hapus class blinking-text
+                                    $("#" + loket + "-antrian-nomor-a").removeClass("blinking-text");
+
+                                    // Hentikan interval
+                                    clearInterval(intervalId);
+                                    console.log('sudah');
+                                }
+                                else {
+                                    console.log('belum');
+                                    $("#"+ loket + "-antrian-nomor-a").addClass("blinking-text");
+                                }
+                            }, 1000);
                         }
                         else {
                             $("#"+ loket + "-antrian-nomor-a").removeClass("blinking-text");
@@ -124,7 +148,32 @@
                     $.get(url, function(data, status){
                         document.getElementById(loket + "-antrian-nomor-b").innerText = data.nomor;
                         if (data.status == 1) {
-                            $("#"+ loket + "-antrian-nomor-b").addClass("blinking-text");
+                            // $("#"+ loket + "-antrian-nomor-b").addClass("blinking-text");
+
+                            var updated_at = data.updated_at;
+
+                            // Ambil timestamp dari updated_at
+                            var updatedTimestamp = new Date(updated_at).getTime();
+
+                            // Atur interval untuk memeriksa setiap 1 detik
+                            var intervalId = setInterval(function() {
+                                // Ambil waktu sekarang
+                                var currentTime = new Date().getTime();
+
+                                // Periksa apakah sudah 20 detik berlalu
+                                if (currentTime - updatedTimestamp >= 10000) { // 20 detik dalam milidetik
+                                    // Hapus class blinking-text
+                                    $("#" + loket + "-antrian-nomor-b").removeClass("blinking-text");
+
+                                    // Hentikan interval
+                                    clearInterval(intervalId);
+                                    console.log('sudah');
+                                }
+                                else {
+                                    console.log('belum');
+                                    $("#"+ loket + "-antrian-nomor-b").addClass("blinking-text");
+                                }
+                            }, 1000);
                         }
                         else {
                             $("#"+ loket + "-antrian-nomor-b").removeClass("blinking-text");

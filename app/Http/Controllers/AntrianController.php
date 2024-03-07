@@ -96,12 +96,13 @@ class AntrianController extends Controller
         if (!$antrian) {
             $antrian = Antrian::where('jenis', $jenis)->where('status', null)
                 ->orderBy('urut', 'asc')->first();
+        }
 
-            if ($antrian) {
-                $antrian->status = 1;
-                $antrian->loket  = $loket;
-                $antrian->update();
-            }
+        if ($antrian) {
+            $antrian->status = 1;
+            $antrian->loket  = $loket;
+            $antrian->updated_at = now();
+            $antrian->update();
         }
 
         return response()->json([

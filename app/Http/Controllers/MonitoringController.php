@@ -27,6 +27,7 @@ class MonitoringController extends Controller
 
         $nomor   = "___";
         $status  = "___";
+        $updated_at = "___";
         $antrian = Antrian::where('jenis', $jenis)->where('status', 1)->where('loket', $loket)
             ->orderBy('urut', 'asc')->first();
 
@@ -38,6 +39,7 @@ class MonitoringController extends Controller
         if ($antrian) {
             $nomor  = $antrian->nomor;
             $status = $antrian->status;
+            $updated_at = $antrian->updated_at;
         }
 
         $sisaAntrian = Antrian::where('jenis', $jenis)->where('status', null)->count();
@@ -45,7 +47,8 @@ class MonitoringController extends Controller
         return response()->json([
             'nomor' => $nomor,
             'status' => $status,
-            'sisaAntrian' => $sisaAntrian
+            'sisaAntrian' => $sisaAntrian,
+            'updated_at' => $updated_at,
         ]);
     }
 }
