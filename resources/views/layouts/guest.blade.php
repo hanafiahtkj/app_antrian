@@ -14,8 +14,8 @@
 
         <!-- Scripts -->
 
-        <link href="{{ asset('build/assets/app-BVyYRoiQ.css') }}" rel="stylesheet" type="text/css" />
-        <script src="{{ asset('build/assets/app-9mbrzSRH.js') }}"></script>
+        <link href="{{ asset('assets/app-BVyYRoiQ.css') }}" rel="stylesheet" type="text/css" />
+        <script src="{{ asset('assets/app-9mbrzSRH.js') }}"></script>
 
         <style>
             body {
