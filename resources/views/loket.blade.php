@@ -46,6 +46,10 @@
         <!-- end page title end breadcrumb -->
     </div>
 
+    <audio id="myAudio">
+        <source src="{{ asset('audio/tingtung.mp3') }}" type="audio/mpeg">
+      </audio>
+
     <x-slot name="script">
         <script type="text/javascript">
 
@@ -122,6 +126,7 @@
                 },
                 function(data, status){
                     // alert("Data: " + data + "\nStatus: " + status);
+
                     Swal.fire({
                         title: "Berhasil!",
                         text: "Nomor Antrian berhasil dipanggil!",
@@ -130,9 +135,20 @@
                         showConfirmButton: false
                     });
 
-                    var utterance = new SpeechSynthesisUtterance("Nomor antrian "+ data.nomor +" silahkan menuju ke loket "+ data.loket +" pendaftaran");
-                    utterance.lang = 'id-ID';
-                    speechSynthesis.speak(utterance);
+                    var x = document.getElementById("myAudio");
+                    x.play();
+
+                    x.addEventListener('ended', function() {
+                        // Buat teks yang ingin diucapkan
+                        var textToSpeak = "Nomor antrian " + data.nomor + " silahkan menuju ke loket " + data.loket + " pendaftaran";
+
+                        // Buat objek SpeechSynthesisUtterance
+                        var utterance = new SpeechSynthesisUtterance(textToSpeak);
+                        utterance.lang = 'id-ID';
+
+                        // Jalankan sintesis suara
+                        speechSynthesis.speak(utterance);
+                    });
                 });
             }
 
