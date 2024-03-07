@@ -142,6 +142,7 @@
                         // Buat objek SpeechSynthesisUtterance
                         var utterance = new SpeechSynthesisUtterance(textToSpeak);
                         utterance.lang = 'id-ID';
+                        utterance.rate = 0.7;
 
                         // Jalankan sintesis suara
                         speechSynthesis.speak(utterance);
