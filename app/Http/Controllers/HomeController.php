@@ -24,7 +24,7 @@ class HomeController extends Controller
             $query->whereDate('created_at', '<', $today)
                 ->orWhere(function ($query) use ($today, $todayAt3PM) {
                     $query->whereDate('created_at', '=', $today)
-                            ->whereTime('created_at', '>', '15:00');
+                            ->whereTime('created_at', '>', '23:00');
                 });
         })->delete();
 
