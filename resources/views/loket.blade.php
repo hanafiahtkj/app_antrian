@@ -135,10 +135,7 @@
                         showConfirmButton: false
                     });
 
-                    var x = document.getElementById("myAudio");
-                    x.play();
-
-                    x.addEventListener('ended', function() {
+                    function onAudioEnded() {
                         // Buat teks yang ingin diucapkan
                         var textToSpeak = "Nomor antrian " + data.nomor + " silahkan menuju ke loket " + data.loket + " pendaftaran";
 
@@ -148,7 +145,19 @@
 
                         // Jalankan sintesis suara
                         speechSynthesis.speak(utterance);
-                    });
+
+                        // Hapus event listener setelah selesai
+                        audio.removeEventListener('ended', onAudioEnded);
+                    }
+
+                    // Dapatkan elemen audio
+                    var audio = document.getElementById("myAudio");
+
+                    // Mainkan audio
+                    audio.play();
+
+                    // Tambahkan event listener untuk mengetahui kapan audio selesai diputar
+                    audio.addEventListener('ended', onAudioEnded);
                 });
             }
 
