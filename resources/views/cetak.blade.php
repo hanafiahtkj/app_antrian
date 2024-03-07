@@ -13,7 +13,6 @@
         <link href="{{ asset('vendor/metrica/dist/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- Scripts -->
-        @vite(['resources/js/app.js'])
 
         <style>
             body[data-layout=horizontal].dark-topbar .navbar-custom, body[data-layout=horizontal].dark-topbar .topbar {
