@@ -38,9 +38,14 @@
                                             <p class="fs-3 fw-semibold text-end">Prioritas (B): <span id="antrian-sisa-b">___</span></p>
                                         </div>
                                     </div>
-                                    <div class="card px-3 border border-3 shadow" style="border-color:#435177!important">
-                                        <div class="card-body" style="min-height: 300px;">
-
+                                    <div class="card p-0 border border-3 shadow" style="border-color:#435177!important">
+                                        <div class="card-body p-0" style="min-height: 300px;">
+                                            <div class="" style="min-height: 300px;">
+                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/s6CtznbsZDs?si=fNNf00v_ZPTEcjpt&autoplay=1" allowfullscreen style="
+                                                height: 300px;
+                                                width: 100%;
+                                            "></iframe>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

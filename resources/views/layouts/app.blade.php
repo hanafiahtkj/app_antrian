@@ -157,7 +157,9 @@
         <!--Start Footer-->
         <!-- Footer Start -->
         <footer class="footer text-center">
-            &copy; <span class="text-muted d-none d-sm-inline-block">Polanka NadiaIntania. Some Right Reserved</span>
+            {{-- &copy; --}}
+            <img src="{{ asset('img/logo.png') }}"  style="margin-top: -5px; height:15px;"/>
+            <span class="text-muted d-none d-sm-inline-block">Polanka NadiaIntania. Some Right Reserved</span>
         </footer>
         <!-- end Footer -->
         <!--end footer-->
