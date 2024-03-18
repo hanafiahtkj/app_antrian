@@ -19,9 +19,16 @@
         <style>
             body[data-layout=horizontal].dark-topbar .navbar-custom, body[data-layout=horizontal].dark-topbar .topbar {
                 background-color: #41cbd8;
+                background-image: url("{{ asset('img/bg.png') }}");
+                background-repeat: repeat;
+                background-position: center;
+                background-size: contain;
             }
             body[data-layout=horizontal].dark-topbar .navbar-custom .brand, body[data-layout=horizontal].dark-topbar .topbar .brand {
-                background-color: #41cbd8;
+                background-color: transparent;
+            }
+            .brand a{
+                color: #fff;
             }
             body[data-layout=horizontal] .topbar .brand {
                 width: 350px!important;
@@ -36,6 +43,10 @@
 
             .blinking-text {
                 animation: blink 1s infinite;
+            }
+
+            .topbar {
+                /* background-image: url("{{ asset('img/bg.png') }}"); */
             }
         </style>
     </head>
