@@ -14,7 +14,7 @@
 
         <!-- Scripts -->
 
-        <script src="{{ asset('assets/app-9mbrzSRH.js') }}"></script>
+        {{-- <script src="{{ asset('assets/app-9mbrzSRH.js') }}"></script> --}}
 
         <style>
             body[data-layout=horizontal].dark-topbar .navbar-custom, body[data-layout=horizontal].dark-topbar .topbar {
