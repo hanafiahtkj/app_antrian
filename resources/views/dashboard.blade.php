@@ -26,17 +26,17 @@
                         <div class="row">
                             <div class="col d-flex justify-content-center">
                                 <div>
-                                    <div class="card text-bg-info mb-3 px-3 border border-3 shadow" style="min-width: 25rem; border-color:#435177!important">
+                                    <div class="card text-bg-info mb-3 px-4 py-2 border border-3 shadow" style="min-width: 35rem; border-color:#435177!important">
                                         <div class="row no-gutters">
                                             <div class="col-md-3 align-self-center text-center">
-                                                <img class="" height="80" src="{{ asset('img/icons8-mic-100.png') }}" alt="Card image"
+                                                <img class="" height="100" src="{{ asset('img/icons8-mic-100.png') }}" alt="Card image"
                                                 style="padding: 10px;
                                                 border-radius: 50%;
                                                 background-color: #ffff;">
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="card-body">
-                                                    <p class="card-text fs-3 fw-semibold">Pemanggilan <br> Antrian</p>
+                                                    <p class="card-text fs-3 fw-semibold text-dark">Pemanggilan <br> Antrian</p>
                                                     <a href="{{ route('loket') . '?loket=1' }}" class="btn btn-light me-2">Loket 1</a>
                                                     <a href="{{ route('loket') . '?loket=2' }}" class="btn btn-light">Loket 2</a>
                                                 </div><!--end card-body-->
@@ -47,17 +47,17 @@
                             </div>
                             <div class="col d-flex justify-content-center">
                                 <div>
-                                    <div class="card text-bg-info mb-3 px-3 border border-3 shadow" style="min-width: 25rem; border-color:#435177!important">
+                                    <div class="card text-bg-info mb-3 px-4 py-2 border border-3 shadow" style="min-width: 35rem; border-color:#435177!important">
                                         <div class="row no-gutters">
                                             <div class="col-md-3 align-self-center text-center">
-                                                <img class="" height="80" src="{{ asset('img/icons8-monitor-100.png') }}" alt="Card image"
+                                                <img class="" height="100" src="{{ asset('img/icons8-monitor-100.png') }}" alt="Card image"
                                                 style="padding: 10px;
                                                 border-radius: 50%;
                                                 background-color: #ffff;">
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="card-body">
-                                                    <p class="card-text fs-3 fw-semibold">Monitor <br> Antrian</p>
+                                                    <p class="card-text fs-3 fw-semibold text-dark">Monitor <br> Antrian</p>
                                                     <a href="{{ route('monitoring') }}" class="btn btn-light">Tampilan</a>
                                                 </div><!--end card-body-->
                                             </div><!--end col-->

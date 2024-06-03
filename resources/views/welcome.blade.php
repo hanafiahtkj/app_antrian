@@ -21,6 +21,7 @@
                                             </div>
                                         </div>
                                     </a>
+                                    <span class="fs-4 fw-semibold"><span class="text-danger">*</span> Berlaku juga bagi pengguna kartu BPJS/Askes</span>
                                 </div>
                             </div>
                             <div class="col d-flex justify-content-center">
@@ -32,10 +33,10 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <span class="fs-6 fw-semibold"><span class="text-danger">*</span> Tekan tombol di atas jika anda:</span>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><i class="la la-check text-danger me-2"></i>Berusia < 65 Tahun</li>
-                                        <li class="list-group-item"><i class="la la-check text-danger me-2"></i>Ibu hamil dengan usia kandungan < 7 bulan</li>
+                                    <span class="fs-4 fw-semibold"><span class="text-danger">*</span> Tekan tombol di atas jika anda:</span>
+                                    <ul class="list-group list-group-flush fs-5">
+                                        <li class="list-group-item"><i class="la la-check text-danger me-2"></i>Berusia > 65 Tahun</li>
+                                        <li class="list-group-item"><i class="la la-check text-danger me-2"></i>Ibu hamil dengan usia kandungan > 7 bulan</li>
                                         <li class="list-group-item"><i class="la la-check text-danger me-2"></i>Penyandang Disabilitas</li>
                                     </ul>
                                 </div>

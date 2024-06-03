@@ -2,16 +2,21 @@
     <div class="d-flex align-items-center" style="height: 100%">
         <div class="row flex-fill">
             <div class="col">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="fs-1 fw-semibold" style="font-size: 3.03125rem!important;">Loket {{ $loket }}</p>
+                    </div>
+                </div>
 
                 <div class="d-flex justify-content-center">
                     <div class="w-75 p-3">
                         <div class="row">
                             <div class="col d-flex justify-content-center">
                                 <div>
-                                    <p class="fs-3 fw-semibold text-center">UMUM</p>
-                                    <div class="card mb-2 border border-3" style="min-width: 18rem;">
+                                    <p class="fs-2 fw-semibold text-center">UMUM</p>
+                                    <div class="card mb-2 border border-3" style="min-width: 25rem;">
                                         <div class="card-body">
-                                            <p class="fs-1 fw-bold text-center mb-0" id="antrian-nomor1">___</p>
+                                            <p class="fs-1 fw-bold text-center mb-0" id="antrian-nomor1" style="font-size: 3.03125rem!important;">___</p>
                                             <p class="my-0 text-center">Status: <span id="antrian-status1">___</span></p>
                                         </div>
                                     </div>
@@ -24,10 +29,10 @@
                             </div>
                             <div class="col d-flex justify-content-center">
                                 <div>
-                                    <p class="fs-3 fw-semibold text-center">PRIORITAS</p>
-                                    <div class="card mb-2 border border-3" style="min-width: 18rem;">
+                                    <p class="fs-2 fw-semibold text-center">PRIORITAS</p>
+                                    <div class="card mb-2 border border-3" style="min-width: 25rem;">
                                         <div class="card-body">
-                                            <p class="fs-1 fw-bold text-center mb-0" id="antrian-nomor2">___</p>
+                                            <p class="fs-1 fw-bold text-center mb-0" id="antrian-nomor2" style="font-size: 3.03125rem!important;">___</p>
                                             <p class="my-0 text-center">Status: <span id="antrian-status2">___</span></p>
                                         </div>
                                     </div>

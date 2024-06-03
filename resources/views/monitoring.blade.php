@@ -51,20 +51,22 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="mb-4">
+                                <div class="mb-4" style="
+                                margin-top: 52px;
+                            ">
                                     <p class="fs-3 fw-semibold text-center">Loket 1</p>
                                     <div class="row">
                                         <div class="col">
                                             <div class="card mb-2 border border-3" style="border-color:#435177!important">
                                                 <div class="card-body">
-                                                    <p class="fs-1 fw-bold text-center mb-0" id="1-antrian-nomor-a">___</p>
+                                                    <p class="fs-1 fw-bold text-center mb-0" id="1-antrian-nomor-a" style="font-size: 3.03125rem!important;">___</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card mb-2 border border-3" style="border-color:#435177!important">
                                                 <div class="card-body">
-                                                    <p class="fs-1 fw-bold text-center mb-0" id="1-antrian-nomor-b">___</p>
+                                                    <p class="fs-1 fw-bold text-center mb-0" id="1-antrian-nomor-b" style="font-size: 3.03125rem!important;">___</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,14 +78,14 @@
                                         <div class="col">
                                             <div class="card mb-2 border border-3" style="border-color:#435177!important">
                                                 <div class="card-body">
-                                                    <p class="fs-1 fw-bold text-center mb-0" id="2-antrian-nomor-a">___</p>
+                                                    <p class="fs-1 fw-bold text-center mb-0" id="2-antrian-nomor-a" style="font-size: 3.03125rem!important;">___</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card mb-2 border border-3" style="border-color:#435177!important">
                                                 <div class="card-body">
-                                                    <p class="fs-1 fw-bold text-center mb-0" id="2-antrian-nomor-b">___</p>
+                                                    <p class="fs-1 fw-bold text-center mb-0" id="2-antrian-nomor-b" style="font-size: 3.03125rem!important;">___</p>
                                                 </div>
                                             </div>
                                         </div>

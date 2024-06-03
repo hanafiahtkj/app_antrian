@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col text-center">
                         <p class="fs-1 fw-semibold">Nomor Antrian Anda</p>
-                        <p class="fs-1 fw-bolder">{{ $nomor }}</p>
+                        <p class="fs-1 fw-bolder" style="font-size: 3.03125rem!important;">{{ $nomor }}</p>
                         <p class="fs-4 fw-medium">Sisa Antrian: {{ $sisaAntrian }}</p>
                         <p class="fs-5">Nomor Antrian berlaku sesuai tanggal yang diterbitkan</p>
                     </div>
