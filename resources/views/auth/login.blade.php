@@ -33,7 +33,7 @@
         </div>
 
         <div class="block mt-4">
-            <span class="fs-5 fw-semibold"><span class="text-danger">*</span> Hubungi Administrator jika Lupa Username atau Password Anda</span>
+            <span class="text-sm text-gray-600"><span class="text-danger">*</span> Hubungi Administrator jika Lupa Username atau Password Anda</span>
         </div>
 
         <div class="flex items-center justify-end mt-4">
