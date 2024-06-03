@@ -23,27 +23,19 @@ class AntrianController extends Controller
         $urut = 1;
         if ($cekAntrian) {
             $urut =  $cekAntrian->urut + 1;
-            $data = [
-                'nomor' => ($jenis == 1 ? 'A' : 'B'). str_pad($urut, 3, "0", STR_PAD_LEFT),
-                'jenis' => $jenis,
-                'urut'  => $urut,
-            ];
+            $nomor = ($jenis == 1 ? 'A' : 'B'). str_pad($urut, 3, "0", STR_PAD_LEFT);
         }
         else {
-            $data = [
-                'nomor' => ($jenis == 1 ? 'A' : 'B'). str_pad(1, 3, "0", STR_PAD_LEFT),
-                'jenis' => $jenis,
-                'urut'  => $urut,
-            ];
+            $nomor = ($jenis == 1 ? 'A' : 'B'). str_pad(1, 3, "0", STR_PAD_LEFT);
         }
 
         $sisaAntrian = Antrian::where('jenis', $jenis)->where('status', null)->count();
-        $antrian = Antrian::create($data);
+        // $antrian = Antrian::create($data);
 
         return view('antrian', [
-            'id' => $antrian->id,
+            // 'id' => $antrian->id,
             'jenis' => $jenis,
-            'nomor' => $antrian->nomor,
+            'nomor' => $nomor,
             'sisaAntrian' => $sisaAntrian
         ]);
     }
@@ -129,8 +121,31 @@ class AntrianController extends Controller
 
     public function cetak(Request $request)
     {
-        $antrian = Antrian::find($request->id);
-        $sisaAntrian = Antrian::where('jenis', $antrian->jenis)->where('status', null)->count();
+        // $antrian = Antrian::find($request->id);
+        // $sisaAntrian = Antrian::where('jenis', $antrian->jenis)->where('status', null)->count();
+
+        $jenis = $request->jenis;
+        $cekAntrian = Antrian::where('jenis', $jenis)->orderBy('urut', 'desc')->first();
+
+        $urut = 1;
+        if ($cekAntrian) {
+            $urut =  $cekAntrian->urut + 1;
+            $data = [
+                'nomor' => ($jenis == 1 ? 'A' : 'B'). str_pad($urut, 3, "0", STR_PAD_LEFT),
+                'jenis' => $jenis,
+                'urut'  => $urut,
+            ];
+        }
+        else {
+            $data = [
+                'nomor' => ($jenis == 1 ? 'A' : 'B'). str_pad(1, 3, "0", STR_PAD_LEFT),
+                'jenis' => $jenis,
+                'urut'  => $urut,
+            ];
+        }
+
+        $sisaAntrian = Antrian::where('jenis', $jenis)->where('status', null)->count();
+        $antrian = Antrian::create($data);
 
         return view('cetak', [
             'antrian' => $antrian,

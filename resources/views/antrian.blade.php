@@ -35,9 +35,9 @@
 
     <x-slot name="script">
         <script type="text/javascript">
-            var id = "{{ $id }}";
+            var jenis = "{{ $jenis }}";
             function cetak() {
-                window.open("{{ route('antrian.cetak') }}?id=" + id, "_blank");
+                window.open("{{ route('antrian.cetak') }}?jenis=" + jenis, "_blank");
                 window.location.replace("{{ route('index')}}");
             }
         </script>
