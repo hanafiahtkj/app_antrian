@@ -22,7 +22,7 @@
                                     </div>
                                     <p class="mt-0 text-center">Sisa Antrian: <span id="antrian-sisa1">___</span></p>
                                     <div class="text-center">
-                                        <button type="button" class="btn btn-success disabled me-2" style="width: 130px;" id="btn-panggil-1" onClick="panggil(1)">Panggil / Ulangi</button>
+                                        <button type="button" class="btn btn-success disabled me-2 btn-panggil" style="width: 130px;" id="btn-panggil-1" onClick="panggil(1)">Panggil / Ulangi</button>
                                         <button type="button" class="btn btn-success disabled" style="width: 130px;" id="btn-next-1" onClick="next(1)">Next</button>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                     </div>
                                     <p class="mt-0 text-center">Sisa Antrian: <span id="antrian-sisa2">___</span></p>
                                     <div class="text-center">
-                                        <button type="button" class="btn btn-danger disabled me-2" style="width: 130px;" id="btn-panggil-2" onClick="panggil(2)">Panggil / Ulangi</button>
+                                        <button type="button" class="btn btn-danger disabled me-2 btn-panggil" style="width: 130px;" id="btn-panggil-2" onClick="panggil(2)">Panggil / Ulangi</button>
                                         <button type="button" class="btn btn-danger disabled" style="width: 130px;" id="btn-next-2" onClick="next(2)">Next</button>
                                     </div>
                                 </div>
@@ -60,28 +60,33 @@
 
             var loket = "{{ $loket }}";
 
-            function getAntrian() {
+            var isCalling = false;
 
+            function getAntrian() {
                 function update1() {
                     var url = "{{ route('antrian.getAntrianByLoket') . '?jenis=1' }}&loket=" + loket;
                     $.get(url, function(data, status){
                         document.getElementById("antrian-nomor1").innerText = data.nomor;
-                        var status = "___";
+                        var statusText = "___";
                         if (data.status == null) {
-                            status = "Belum dipanggil";
-                            $("#btn-panggil-1").removeClass("disabled");
+                            statusText = "Belum dipanggil";
+                            if (!isCalling) {
+                                $("#btn-panggil-1").removeClass("disabled");
+                            }
                             $("#btn-next-1").addClass("disabled");
                         }
                         else if (data.status == 1){
-                            status = "Sudah dipanggil";
-                            $("#btn-panggil-1").removeClass("disabled");
-                            $("#btn-next-1").removeClass("disabled");
+                            statusText = "Sudah dipanggil";
+                            if (!isCalling) {
+                                $("#btn-panggil-1").removeClass("disabled");
+                                $("#btn-next-1").removeClass("disabled");
+                            }
                         }
 
                         if (data.sisaAntrian == 0) {
                             $("#btn-next-1").addClass("disabled");
                         }
-                        document.getElementById("antrian-status1").innerText = status;
+                        document.getElementById("antrian-status1").innerText = statusText;
                         document.getElementById("antrian-sisa1").innerText = data.sisaAntrian;
                     });
 
@@ -94,22 +99,26 @@
                     var url = "{{ route('antrian.getAntrianByLoket') . '?jenis=2' }}&loket=" + loket;
                     $.get(url, function(data, status){
                         document.getElementById("antrian-nomor2").innerText = data.nomor;
-                        var status = "___";
+                        var statusText = "___";
                         if (data.status == null) {
-                            status = "Belum dipanggil";
-                            $("#btn-panggil-2").removeClass("disabled");
+                            statusText = "Belum dipanggil";
+                            if (!isCalling) {
+                                $("#btn-panggil-2").removeClass("disabled");
+                            }
                             $("#btn-next-2").addClass("disabled");
                         }
                         else if (data.status == 1){
-                            status = "Sudah dipanggil";
-                            $("#btn-panggil-2").removeClass("disabled");
-                            $("#btn-next-2").removeClass("disabled");
+                            statusText = "Sudah dipanggil";
+                            if (!isCalling) {
+                                $("#btn-panggil-2").removeClass("disabled");
+                                $("#btn-next-2").removeClass("disabled");
+                            }
                         }
 
                         if (data.sisaAntrian == 0) {
                             $("#btn-next-2").addClass("disabled");
                         }
-                        document.getElementById("antrian-status2").innerText = status;
+                        document.getElementById("antrian-status2").innerText = statusText;
                         document.getElementById("antrian-sisa2").innerText = data.sisaAntrian;
                     });
 
@@ -122,6 +131,14 @@
             getAntrian();
 
             function panggil(jenis) {
+                if (isCalling) {
+                    console.log("Tunggu sampai pemanggilan sebelumnya selesai.");
+                    return;
+                }
+
+                isCalling = true;
+                toggleButtonState(true);
+
                 var url = "{{ route('antrian.setAntrianByLoket') }}";
                 $.post(url,
                 {
@@ -130,8 +147,6 @@
                     loket: loket
                 },
                 function(data, status){
-                    // alert("Data: " + data + "\nStatus: " + status);
-
                     Swal.fire({
                         title: "Berhasil!",
                         text: "Nomor Antrian berhasil dipanggil!",
@@ -141,29 +156,35 @@
                     });
 
                     function onAudioEnded() {
-                        // Buat teks yang ingin diucapkan
                         var textToSpeak = "Nomor antrian " + data.nomor + " silahkan menuju ke loket " + data.loket + " pendaftaran";
-
-                        // Buat objek SpeechSynthesisUtterance
                         var utterance = new SpeechSynthesisUtterance(textToSpeak);
                         utterance.lang = 'id-ID';
                         utterance.rate = 0.8;
 
-                        // Jalankan sintesis suara
                         speechSynthesis.speak(utterance);
 
-                        // Hapus event listener setelah selesai
+                        utterance.onend = function() {
+                            isCalling = false; // Pemanggilan selesai, set flag menjadi false
+                            toggleButtonState(false);
+                        };
+
                         audio.removeEventListener('ended', onAudioEnded);
                     }
 
-                    // Dapatkan elemen audio
                     var audio = document.getElementById("myAudio");
-
-                    // Mainkan audio
                     audio.play();
-
-                    // Tambahkan event listener untuk mengetahui kapan audio selesai diputar
                     audio.addEventListener('ended', onAudioEnded);
+                });
+            }
+
+            function toggleButtonState(disable) {
+                var buttons = document.querySelectorAll('.btn-panggil');
+                buttons.forEach(function(button) {
+                    if (disable) {
+                        button.classList.add('disabled');
+                    } else {
+                        button.classList.remove('disabled');
+                    }
                 });
             }
 

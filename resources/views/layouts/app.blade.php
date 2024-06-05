@@ -194,19 +194,32 @@
             }
 
             function showTime() {
-                var serverTime2 = document.getElementById("serverTime").innerText;
-                var date = new Date(serverTime);
+                // var serverTime2 = document.getElementById("serverTime").innerText;
+                // var date = new Date(serverTime);
 
-                var serverTime = new Date(serverTime2);
+                // var serverTime = new Date(serverTime2);
 
-                console.log(serverTime);
+                // console.log(serverTime);
+
+                // function updateClock() {
+                //     serverTime.setSeconds(serverTime.getSeconds() + 1);
+
+                //     var hours = pad(serverTime.getHours());
+                //     var minutes = pad(serverTime.getMinutes());
+                //     var seconds = pad(serverTime.getSeconds());
+
+                //     var time = hours + ":" + minutes + ":" + seconds;
+                //     document.getElementById("liveClock").innerText = time;
+
+                //     setTimeout(updateClock, 1000);
+                // }
 
                 function updateClock() {
-                    serverTime.setSeconds(serverTime.getSeconds() + 1);
+                    var currentTime = new Date();
 
-                    var hours = pad(serverTime.getHours());
-                    var minutes = pad(serverTime.getMinutes());
-                    var seconds = pad(serverTime.getSeconds());
+                    var hours = pad(currentTime.getHours());
+                    var minutes = pad(currentTime.getMinutes());
+                    var seconds = pad(currentTime.getSeconds());
 
                     var time = hours + ":" + minutes + ":" + seconds;
                     document.getElementById("liveClock").innerText = time;
